@@ -1,0 +1,32 @@
+package com.fazlaysapaylas.domain;
+
+public class Marka {
+	
+	private Long id;
+	private String markaAdi;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getMarkaAdi() {
+		return markaAdi;
+	}
+	public void setMarkaAdi(String markaAdi) {
+		this.markaAdi = markaAdi;
+	}
+	
+	public Marka(){
+		
+	}
+	
+	public Marka(String markaAdi) {
+		super();
+		this.markaAdi = markaAdi;
+	}
+	
+	
+
+}

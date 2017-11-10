@@ -1,0 +1,5 @@
+package com.fazlaysapaylas.utils;
+
+public class HibernateUtil {
+
+}

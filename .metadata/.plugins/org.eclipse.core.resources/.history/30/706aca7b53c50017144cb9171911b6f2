@@ -1,0 +1,7 @@
+package com.fazlaysapaylas.domain;
+
+public enum IlanOnayDurumu {
+	
+	ONAYBEKLIYOR,ONAYLANDI,REDDEDILDI
+
+}

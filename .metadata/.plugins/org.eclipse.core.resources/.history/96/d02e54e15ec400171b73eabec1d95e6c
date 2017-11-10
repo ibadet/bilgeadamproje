@@ -1,0 +1,21 @@
+package com.fazlaysapaylas.domain;
+
+import java.util.Date;
+
+public class Kisi {
+	
+	private Long id;
+	private String ad;
+	private String soyad;
+	private String cepTelefonu;
+	private String epostaAdresi;
+	private Date dogumTarihi;
+	private Il yasadigiIl;
+	private Ilce yasadigiIlce;
+	private String Adres;
+	
+	
+	
+	
+
+}

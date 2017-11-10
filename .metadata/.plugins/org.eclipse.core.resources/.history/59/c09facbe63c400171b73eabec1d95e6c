@@ -1,0 +1,9 @@
+package com.fazlaysapaylas.domain;
+
+public class Rol {
+	
+	private Long id;
+	private String rolAdi;
+	private String rolKodu;
+
+}

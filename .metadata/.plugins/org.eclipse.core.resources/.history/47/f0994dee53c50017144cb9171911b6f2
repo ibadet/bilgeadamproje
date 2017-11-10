@@ -1,0 +1,5 @@
+package com.fazlaysapaylas.enums;
+
+public enum IlanKaldirmaNedeni {
+
+}

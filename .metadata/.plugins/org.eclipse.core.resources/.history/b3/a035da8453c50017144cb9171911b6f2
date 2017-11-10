@@ -1,0 +1,7 @@
+package com.fazlaysapaylas.startup;
+
+public enum YayinDurumu {
+	
+	YAYINLANMADI,YAYINDA,KALDIRILDI
+
+}

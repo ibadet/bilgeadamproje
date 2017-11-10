@@ -1,0 +1,44 @@
+package com.fazlaysapaylas.domain;
+
+public class Il {
+	
+	private Long id;
+	private String ilKodu;
+	private String ilAdi;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getIlKodu() {
+		return ilKodu;
+	}
+	public void setIlKodu(String ilKodu) {
+		this.ilKodu = ilKodu;
+	}
+	public String getIlAdi() {
+		return ilAdi;
+	}
+	public void setIlAdi(String ilAdi) {
+		this.ilAdi = ilAdi;
+	}
+	
+	
+	public Il(){		
+	}
+	
+	public Il(String ilKodu, String ilAdi) {
+		super();
+		this.ilKodu = ilKodu;
+		this.ilAdi = ilAdi;
+	}
+	
+	@Override
+	public String toString() {
+		return "Il [ilKodu=" + ilKodu + ", ilAdi=" + ilAdi + "]";
+	}
+	
+	
+
+}

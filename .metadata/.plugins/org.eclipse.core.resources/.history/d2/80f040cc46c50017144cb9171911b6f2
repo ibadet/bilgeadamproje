@@ -1,0 +1,14 @@
+package com.fazlaysapaylas.domain;
+
+public class Urun {
+	
+	private Long id;
+	private String tanim;
+	private Kategori kategori;
+	private Marka marka;
+	private String kullanýmDurumu;
+	private String aciklama;
+	private Integer puan; 
+	
+
+}

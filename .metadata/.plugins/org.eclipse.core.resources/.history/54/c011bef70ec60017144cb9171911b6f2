@@ -1,0 +1,98 @@
+package com.fazlaysapaylas.domain;
+
+import java.util.Date;
+
+import com.fazlaysapaylas.enums.IlanKaldirmaNedeni;
+import com.fazlaysapaylas.enums.IlanOnayDurumu;
+import com.fazlaysapaylas.enums.YayinDurumu;
+
+public class Ilan {
+	
+	private Long ilanNo;
+	private Date ilanVerilisTarihi;
+	private Date ilanKapanisTarihi;
+	private YayinDurumu yayinDurumu;
+	private IlanOnayDurumu onayDurumu;
+	private IlanKaldirmaNedeni kaldirilmaNedeni;
+	private Kisi ilaniVeren;
+	private Urun urun;
+	
+	public Long getIlanNo() {
+		return ilanNo;
+	}
+	public void setIlanNo(Long ilanNo) {
+		this.ilanNo = ilanNo;
+	}
+	public Date getIlanVerilisTarihi() {
+		return ilanVerilisTarihi;
+	}
+	public void setIlanVerilisTarihi(Date ilanVerilisTarihi) {
+		this.ilanVerilisTarihi = ilanVerilisTarihi;
+	}
+	public Date getIlanKapanisTarihi() {
+		return ilanKapanisTarihi;
+	}
+	public void setIlanKapanisTarihi(Date ilanKapanisTarihi) {
+		this.ilanKapanisTarihi = ilanKapanisTarihi;
+	}
+	public YayinDurumu getYayinDurumu() {
+		return yayinDurumu;
+	}
+	public void setYayinDurumu(YayinDurumu yayinDurumu) {
+		this.yayinDurumu = yayinDurumu;
+	}
+	public IlanOnayDurumu getOnayDurumu() {
+		return onayDurumu;
+	}
+	public void setOnayDurumu(IlanOnayDurumu onayDurumu) {
+		this.onayDurumu = onayDurumu;
+	}
+	public IlanKaldirmaNedeni getKaldirilmaNedeni() {
+		return kaldirilmaNedeni;
+	}
+	public void setKaldirilmaNedeni(IlanKaldirmaNedeni kaldirilmaNedeni) {
+		this.kaldirilmaNedeni = kaldirilmaNedeni;
+	}
+	public Kisi getIlaniVeren() {
+		return ilaniVeren;
+	}
+	public void setIlaniVeren(Kisi ilaniVeren) {
+		this.ilaniVeren = ilaniVeren;
+	}
+	public Urun getUrun() {
+		return urun;
+	}
+	public void setUrun(Urun urun) {
+		this.urun = urun;
+	}
+	
+	public Ilan(){
+		
+	}
+	
+	public Ilan(Date ilanVerilisTarihi, Date ilanKapanisTarihi,
+			YayinDurumu yayinDurumu, IlanOnayDurumu onayDurumu, IlanKaldirmaNedeni kaldirilmaNedeni,
+			Kisi ilaniVeren, Urun urun) {
+		super();
+		this.ilanVerilisTarihi = ilanVerilisTarihi;
+		this.ilanKapanisTarihi = ilanKapanisTarihi;
+		this.yayinDurumu = yayinDurumu;
+		this.onayDurumu = onayDurumu;
+		this.kaldirilmaNedeni = kaldirilmaNedeni;
+		this.ilaniVeren = ilaniVeren;
+		this.urun = urun;
+	}
+	@Override
+	public String toString() {
+		return "Ilan [ilanNo=" + ilanNo + ", ilanVerilisTarihi="
+				+ ilanVerilisTarihi + ", ilanKapanisTarihi="
+				+ ilanKapanisTarihi + ", yayinDurumu=" + yayinDurumu
+				+ ", onayDurumu=" + onayDurumu + ", kaldirilmaNedeni="
+				+ kaldirilmaNedeni + ", ilaniVeren=" + ilaniVeren + ", urun="
+				+ urun + "]";
+	}
+	
+	
+	
+
+}

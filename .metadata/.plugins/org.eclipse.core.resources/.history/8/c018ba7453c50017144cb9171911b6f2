@@ -1,0 +1,6 @@
+package com.fazlaysapaylas.domain;
+
+public enum UrunDurumu {
+	
+	AZKULLANILMIS,KULLANILMAMIS,ETIKETLI
+}
