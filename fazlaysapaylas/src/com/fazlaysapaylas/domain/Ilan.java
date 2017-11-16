@@ -1,23 +1,25 @@
 package com.fazlaysapaylas.domain;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import com.fazlaysapaylas.enums.IlanKaldirmaNedeni;
 import com.fazlaysapaylas.enums.IlanOnayDurumu;
 import com.fazlaysapaylas.enums.YayinDurumu;
 
 @Entity
-public class Ilan {
+public class Ilan extends BaseEntity {
 	
 	private Long ilanNo;
 	private Date ilanVerilisTarihi;
@@ -26,11 +28,14 @@ public class Ilan {
 	private IlanOnayDurumu onayDurumu;
 	private IlanKaldirmaNedeni kaldirilmaNedeni;
 	private Kisi ilaniVeren;
-	private Urun urun;
+	private Set<Urun> urunler;
 	
+	
+	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ilan_no")
+	@Column(name="ILAN_NO")
 	public Long getIlanNo() {
 		return ilanNo;
 	}
@@ -38,35 +43,38 @@ public class Ilan {
 		this.ilanNo = ilanNo;
 	}
 	
-	@Column(name="ilan_verilis_tarihi")
+	@Column(name="ILAN_VERILIS_TARIHI")
 	public Date getIlanVerilisTarihi() {
 		return ilanVerilisTarihi;
 	}
 	public void setIlanVerilisTarihi(Date ilanVerilisTarihi) {
 		this.ilanVerilisTarihi = ilanVerilisTarihi;
 	}
-	@Column(name="ilan_kapanis_tarihi")
+	@Column(name="ILAN_KAPANIS_TARIHI")
 	public Date getIlanKapanisTarihi() {
 		return ilanKapanisTarihi;
 	}
 	public void setIlanKapanisTarihi(Date ilanKapanisTarihi) {
 		this.ilanKapanisTarihi = ilanKapanisTarihi;
 	}
-	@Column(name="yayin_durumu")
+	@Column(name="YAYIN_DURUMU")
+	@Enumerated(EnumType.STRING)
 	public YayinDurumu getYayinDurumu() {
 		return yayinDurumu;
 	}
 	public void setYayinDurumu(YayinDurumu yayinDurumu) {
 		this.yayinDurumu = yayinDurumu;
 	}
-	@Column(name="onay_durumu")
+	@Column(name="ONAY_DURUMU")
+	@Enumerated(EnumType.STRING)
 	public IlanOnayDurumu getOnayDurumu() {
 		return onayDurumu;
 	}
 	public void setOnayDurumu(IlanOnayDurumu onayDurumu) {
 		this.onayDurumu = onayDurumu;
 	}
-	@Column(name="kaldirilma_nedeni")
+	@Column(name="KALDIRILMA_NEDENÝ")
+	@Enumerated(EnumType.STRING)
 	public IlanKaldirmaNedeni getKaldirilmaNedeni() {
 		return kaldirilmaNedeni;
 	}
@@ -75,7 +83,6 @@ public class Ilan {
 	}
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id")
 	public Kisi getIlaniVeren() {
 		return ilaniVeren;
 	}
@@ -83,13 +90,13 @@ public class Ilan {
 		this.ilaniVeren = ilaniVeren;
 	}
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	public Urun getUrun() {
-		return urun;
+	@OneToMany(fetch=FetchType.LAZY)
+	public Set<Urun> getUrunler() {
+		return urunler;
 	}
-	public void setUrun(Urun urun) {
-		this.urun = urun;
-	}
+	public void setUrunler(Set<Urun> urunler) {
+		this.urunler = urunler;
+	}	
 	
 	public Ilan(){
 		
@@ -97,7 +104,7 @@ public class Ilan {
 	
 	public Ilan(Date ilanVerilisTarihi, Date ilanKapanisTarihi,
 			YayinDurumu yayinDurumu, IlanOnayDurumu onayDurumu, IlanKaldirmaNedeni kaldirilmaNedeni,
-			Kisi ilaniVeren, Urun urun) {
+			Kisi ilaniVeren, Set<Urun> urunler) {
 		super();
 		this.ilanVerilisTarihi = ilanVerilisTarihi;
 		this.ilanKapanisTarihi = ilanKapanisTarihi;
@@ -105,16 +112,7 @@ public class Ilan {
 		this.onayDurumu = onayDurumu;
 		this.kaldirilmaNedeni = kaldirilmaNedeni;
 		this.ilaniVeren = ilaniVeren;
-		this.urun = urun;
-	}
-	@Override
-	public String toString() {
-		return "Ilan [ilanNo=" + ilanNo + ", ilanVerilisTarihi="
-				+ ilanVerilisTarihi + ", ilanKapanisTarihi="
-				+ ilanKapanisTarihi + ", yayinDurumu=" + yayinDurumu
-				+ ", onayDurumu=" + onayDurumu + ", kaldirilmaNedeni="
-				+ kaldirilmaNedeni + ", ilaniVeren=" + ilaniVeren + ", urun="
-				+ urun + "]";
+		this.urunler = urunler;
 	}
 	
 	

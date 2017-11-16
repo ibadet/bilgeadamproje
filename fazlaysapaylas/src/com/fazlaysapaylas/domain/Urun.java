@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import com.fazlaysapaylas.enums.UrunDurumu;
 
 @Entity
-public class Urun {
+public class Urun extends BaseEntity {
 	
 	private Long id;
 	private String tanim;
@@ -32,7 +32,7 @@ public class Urun {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column(name="tanim",nullable=false)
+	@Column(name="TANIM",nullable=false)
 	public String getTanim() {
 		return tanim;
 	}
@@ -53,25 +53,31 @@ public class Urun {
 	public void setMarka(Marka marka) {
 		this.marka = marka;
 	}
-	@Column(name="kullanim_durumu")
+	@Column(name="KULLANIM_DURUMU")
 	public UrunDurumu getKullanýmDurumu() {
 		return kullanýmDurumu;
 	}
 	public void setKullanýmDurumu(UrunDurumu kullanýmDurumu) {
 		this.kullanýmDurumu = kullanýmDurumu;
 	}
+	
+	@Column(name="ACIKLAMA")
 	public String getAciklama() {
 		return aciklama;
 	}
 	public void setAciklama(String aciklama) {
 		this.aciklama = aciklama;
 	}
+	
+	@Column(name="PUAN")
 	public Integer getPuan() {
 		return puan;
 	}
 	public void setPuan(Integer puan) {
 		this.puan = puan;
 	}
+	
+	@Column(name="FOTOGRAF")
 	public byte[] getFotograf() {
 		return fotograf;
 	}

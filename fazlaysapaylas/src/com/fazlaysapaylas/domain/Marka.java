@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Marka {
+public class Marka extends BaseEntity{
 	
 	private Long id;
 	private String markaAdi;
@@ -20,7 +20,7 @@ public class Marka {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column(name="marka_adi")
+	@Column(name="MARKA_ADI")
 	public String getMarkaAdi() {
 		return markaAdi;
 	}

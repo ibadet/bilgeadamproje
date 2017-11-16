@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Il {
+public class Il extends BaseEntity {
 	
 	private Long id;
 	private String ilKodu;
@@ -22,7 +22,7 @@ public class Il {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column(name="il_kodu")
+	@Column(name="IL_KODU")
 	public String getIlKodu() {
 		return ilKodu;
 	}
@@ -30,7 +30,7 @@ public class Il {
 		this.ilKodu = ilKodu;
 	}
 	
-	@Column(name="il_adi")
+	@Column(name="IL_ADI")
 	public String getIlAdi() {
 		return ilAdi;
 	}
@@ -38,9 +38,6 @@ public class Il {
 		this.ilAdi = ilAdi;
 	}
 	
-	
-	public Il(){		
-	}
 	
 	public Il(String ilKodu, String ilAdi) {
 		super();

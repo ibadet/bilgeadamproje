@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Kategori {
+public class Kategori extends BaseEntity {
 	
 	private Long id;
 	private String kategoriAdi;
@@ -25,14 +25,14 @@ public class Kategori {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column(name="kategori_adi")
+	@Column(name="KATEGORI_ADI")
 	public String getKategoriAdi() {
 		return kategoriAdi;
 	}
 	public void setKategoriAdi(String kategoriAdi) {
 		this.kategoriAdi = kategoriAdi;
 	}
-	@Column(name="kategori_kodu")
+	@Column(name="KATEGORI_KODU")
 	public String getKategoriKodu() {
 		return kategoriKodu;
 	}

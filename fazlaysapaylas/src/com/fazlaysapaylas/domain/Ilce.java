@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Ilce {
+public class Ilce extends BaseEntity {
 	
 	private Long id;
 	private Il il;

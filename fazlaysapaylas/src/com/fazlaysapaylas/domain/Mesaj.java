@@ -2,7 +2,16 @@ package com.fazlaysapaylas.domain;
 
 import java.util.Date;
 
-public class Mesaj {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Mesaj extends BaseEntity{
 	
 	private Long id;
 	private Kisi gonderen;
@@ -11,36 +20,44 @@ public class Mesaj {
 	private String icerik;
 	private String iletimDurumu;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}	
+	@ManyToOne(fetch=FetchType.LAZY)
 	public Kisi getGonderen() {
 		return gonderen;
 	}
 	public void setGonderen(Kisi gonderen) {
 		this.gonderen = gonderen;
 	}
+	@ManyToOne(fetch=FetchType.LAZY)
 	public Kisi getAlici() {
 		return alici;
 	}
 	public void setAlici(Kisi alici) {
 		this.alici = alici;
 	}
+	@Column(name="GONDERIM_TARIHI")
 	public Date getGonderimTarihi() {
 		return gonderimTarihi;
 	}
 	public void setGonderimTarihi(Date gonderimTarihi) {
 		this.gonderimTarihi = gonderimTarihi;
 	}
+	
+	@Column(name="ICERIK")
 	public String getIcerik() {
 		return icerik;
 	}
 	public void setIcerik(String icerik) {
 		this.icerik = icerik;
 	}
+	@Column(name="ILETIM_DURUMU")
 	public String getIletimDurumu() {
 		return iletimDurumu;
 	}

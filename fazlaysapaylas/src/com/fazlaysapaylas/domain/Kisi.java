@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)  
 @DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)  
 @DiscriminatorValue(value="kisi")
-public class Kisi {
+public class Kisi extends BaseEntity {
 	
 	private Long id;
 	private String ad;
@@ -38,34 +38,36 @@ public class Kisi {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}	
+	@Column(name="AD")
 	public String getAd() {
 		return ad;
 	}
 	public void setAd(String ad) {
 		this.ad = ad;
-	}
+	}	
+	@Column(name="SOYAD")
 	public String getSoyad() {
 		return soyad;
 	}
 	public void setSoyad(String soyad) {
 		this.soyad = soyad;
 	}
-	@Column(name="cep_telefonu")
+	@Column(name="CEP_TELEFONU")
 	public String getCepTelefonu() {
 		return cepTelefonu;
 	}
 	public void setCepTelefonu(String cepTelefonu) {
 		this.cepTelefonu = cepTelefonu;
 	}
-	@Column(name="eposta_adresi")
+	@Column(name="EPOSTA_ADRESI")
 	public String getEpostaAdresi() {
 		return epostaAdresi;
 	}
 	public void setEpostaAdresi(String epostaAdresi) {
 		this.epostaAdresi = epostaAdresi;
 	}
-	@Column(name="dogum_tarihi")
+	@Column(name="DOGUM_TARIHI")
 	public Date getDogumTarihi() {
 		return dogumTarihi;
 	}
@@ -85,7 +87,8 @@ public class Kisi {
 	}
 	public void setYasadigiIlce(Ilce yasadigiIlce) {
 		this.yasadigiIlce = yasadigiIlce;
-	}
+	}	
+	@Column(name="ADRES")
 	public String getAdres() {
 		return Adres;
 	}

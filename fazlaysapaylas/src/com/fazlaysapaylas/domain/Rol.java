@@ -1,23 +1,34 @@
 package com.fazlaysapaylas.domain;
 
-public class Rol {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Rol extends BaseEntity {
 	
 	private Long id;
 	private String rolAdi;
 	private String rolKodu;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	@Column(name="ROL_ADI")
 	public String getRolAdi() {
 		return rolAdi;
 	}
 	public void setRolAdi(String rolAdi) {
 		this.rolAdi = rolAdi;
 	}
+	@Column(name="ROL_KODU")
 	public String getRolKodu() {
 		return rolKodu;
 	}
