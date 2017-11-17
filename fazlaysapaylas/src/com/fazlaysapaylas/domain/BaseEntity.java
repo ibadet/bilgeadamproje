@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
@@ -22,6 +23,7 @@ public abstract class BaseEntity  {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	public Long getId() {
 		return id;
 	}
@@ -30,6 +32,7 @@ public abstract class BaseEntity  {
 	}
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="KAYITYAPAN_ID")
 	public Kullanici getKayitYapan() {
 		return kayitYapan;
 	}
@@ -46,6 +49,7 @@ public abstract class BaseEntity  {
 	}
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="DEGISIKLIKYAPAN_ID")
 	public Kullanici getDegisiklikYapan() {
 		return degisiklikYapan;
 	}

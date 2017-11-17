@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity  
@@ -33,6 +34,7 @@ public class Kisi extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
+	@Column(name="ID")
 	public Long getId() {
 		return id;
 	}
@@ -75,6 +77,7 @@ public class Kisi extends BaseEntity {
 		this.dogumTarihi = dogumTarihi;
 	}
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="YASADIGIIL_ID")
 	public Il getYasadigiIl() {
 		return yasadigiIl;
 	}
@@ -82,6 +85,7 @@ public class Kisi extends BaseEntity {
 		this.yasadigiIl = yasadigiIl;
 	}
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="YASADIGIILCE_ID")
 	public Ilce getYasadigiIlce() {
 		return yasadigiIlce;
 	}

@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,6 +19,7 @@ public class Ilce extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	public Long getId() {
 		return id;
 	}
@@ -26,6 +28,7 @@ public class Ilce extends BaseEntity {
 	}
 	
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="IL_ID")
 	public Il getIl() {
 		return il;
 	}
@@ -33,7 +36,7 @@ public class Ilce extends BaseEntity {
 		this.il = il;
 	}
 	
-	@Column(name="ilce_adi")
+	@Column(name="ILCE_ADI")
 	public String getIlceAdi() {
 		return ilceAdi;
 	}

@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,6 +23,7 @@ public class Mesaj extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	public Long getId() {
 		return id;
 	}
@@ -29,6 +31,7 @@ public class Mesaj extends BaseEntity{
 		this.id = id;
 	}	
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="GONDEREN_ID")
 	public Kisi getGonderen() {
 		return gonderen;
 	}
@@ -36,6 +39,7 @@ public class Mesaj extends BaseEntity{
 		this.gonderen = gonderen;
 	}
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="ALICI_ID")
 	public Kisi getAlici() {
 		return alici;
 	}

@@ -1,7 +1,6 @@
 package com.fazlaysapaylas.domain;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fazlaysapaylas.enums.IlanKaldirmaNedeni;
 import com.fazlaysapaylas.enums.IlanOnayDurumu;
@@ -28,10 +27,8 @@ public class Ilan extends BaseEntity {
 	private IlanOnayDurumu onayDurumu;
 	private IlanKaldirmaNedeni kaldirilmaNedeni;
 	private Kisi ilaniVeren;
-	private Set<Urun> urunler;
-	
-	
-	
+	//private Set<Urun> urunler;	
+	private Urun urn;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -90,30 +87,27 @@ public class Ilan extends BaseEntity {
 		this.ilaniVeren = ilaniVeren;
 	}
 	
+	/*
 	@OneToMany(fetch=FetchType.LAZY)
 	public Set<Urun> getUrunler() {
 		return urunler;
 	}
 	public void setUrunler(Set<Urun> urunler) {
 		this.urunler = urunler;
+	}*/
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	public Urun getUrn() {
+		return urn;
+	}
+	public void setUrn(Urun urun) {
+		this.urn = urun;
 	}	
 	
 	public Ilan(){
 		
 	}
 	
-	public Ilan(Date ilanVerilisTarihi, Date ilanKapanisTarihi,
-			YayinDurumu yayinDurumu, IlanOnayDurumu onayDurumu, IlanKaldirmaNedeni kaldirilmaNedeni,
-			Kisi ilaniVeren, Set<Urun> urunler) {
-		super();
-		this.ilanVerilisTarihi = ilanVerilisTarihi;
-		this.ilanKapanisTarihi = ilanKapanisTarihi;
-		this.yayinDurumu = yayinDurumu;
-		this.onayDurumu = onayDurumu;
-		this.kaldirilmaNedeni = kaldirilmaNedeni;
-		this.ilaniVeren = ilaniVeren;
-		this.urunler = urunler;
-	}
 	
 	
 	
