@@ -33,8 +33,9 @@
 		<mapping class="com.fazlaysapaylas.domain.Kategori" />
 		<mapping class="com.fazlaysapaylas.domain.Marka" />
 	  	<mapping class="com.fazlaysapaylas.domain.Urun" />
-		<mapping class="com.fazlaysapaylas.domain.Rol" />
-		<mapping class="com.fazlaysapaylas.domain.Yetki" />
+	  	<mapping class="com.fazlaysapaylas.domain.Ilan" />
+	  	<mapping class="com.fazlaysapaylas.domain.Yetki" />
+		<mapping class="com.fazlaysapaylas.domain.Rol" />	
 		<mapping class="com.fazlaysapaylas.domain.Mesaj" />
 		<mapping class="com.fazlaysapaylas.domain.IslemLog" />
 	

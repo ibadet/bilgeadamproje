@@ -1,6 +1,7 @@
 package com.fazlaysapaylas.domain;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import com.fazlaysapaylas.enums.IlanKaldirmaNedeni;
 import com.fazlaysapaylas.enums.IlanOnayDurumu;
@@ -20,6 +22,7 @@ import com.fazlaysapaylas.enums.YayinDurumu;
 @Entity
 public class Ilan extends BaseEntity {
 	
+	private Long id;
 	private Long ilanNo;
 	private Date ilanVerilisTarihi;
 	private Date ilanKapanisTarihi;
@@ -27,11 +30,18 @@ public class Ilan extends BaseEntity {
 	private IlanOnayDurumu onayDurumu;
 	private IlanKaldirmaNedeni kaldirilmaNedeni;
 	private Kisi ilaniVeren;
-	//private Set<Urun> urunler;	
-	private Urun urn;
-
+	private Set<Urun> urunler;	
+		
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Column(name="ILAN_NO")
 	public Long getIlanNo() {
 		return ilanNo;
@@ -80,6 +90,7 @@ public class Ilan extends BaseEntity {
 	}
 	
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="ILANIVEREN_ID")
 	public Kisi getIlaniVeren() {
 		return ilaniVeren;
 	}
@@ -87,22 +98,15 @@ public class Ilan extends BaseEntity {
 		this.ilaniVeren = ilaniVeren;
 	}
 	
-	/*
-	@OneToMany(fetch=FetchType.LAZY)
+	
+	@OneToMany(mappedBy="ilan", fetch=FetchType.LAZY)
 	public Set<Urun> getUrunler() {
 		return urunler;
 	}
 	public void setUrunler(Set<Urun> urunler) {
 		this.urunler = urunler;
-	}*/
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	public Urun getUrn() {
-		return urn;
 	}
-	public void setUrn(Urun urun) {
-		this.urn = urun;
-	}	
+	
 	
 	public Ilan(){
 		

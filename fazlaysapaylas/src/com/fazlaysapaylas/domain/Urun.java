@@ -1,7 +1,5 @@
 package com.fazlaysapaylas.domain;
 
-import java.util.Arrays;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,7 +22,10 @@ public class Urun extends BaseEntity {
 	private String aciklama;
 	private Integer puan; 
 	private byte[] fotograf;
+	private Ilan ilan;
 	
+	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -89,12 +90,21 @@ public class Urun extends BaseEntity {
 		this.fotograf = fotograf;
 	}
 	
+	@ManyToOne
+	@JoinColumn(name="ILAN_ID", nullable=false)
+	public Ilan getIlan() {
+		return ilan;
+	}
+	public void setIlan(Ilan ilan) {
+		this.ilan = ilan;
+	}
+	
 	public Urun(){
 		
 	}
 	public Urun(String tanim, Kategori kategori, Marka marka,
 			UrunDurumu kullanýmDurumu, String aciklama, Integer puan,
-			byte[] fotograf) {
+			byte[] fotograf, Ilan ilan) {
 		super();
 		this.tanim = tanim;
 		this.kategori = kategori;
@@ -103,17 +113,8 @@ public class Urun extends BaseEntity {
 		this.aciklama = aciklama;
 		this.puan = puan;
 		this.fotograf = fotograf;
+		this.ilan = ilan;
 	}
-	@Override
-	public String toString() {
-		return "Urun [id=" + id + ", tanim=" + tanim + ", kategori=" + kategori
-				+ ", marka=" + marka + ", kullanýmDurumu=" + kullanýmDurumu
-				+ ", aciklama=" + aciklama + ", puan=" + puan + ", fotograf="
-				+ Arrays.toString(fotograf) + "]";
-	}
-	
-	
-	
-	
 
+	
 }
