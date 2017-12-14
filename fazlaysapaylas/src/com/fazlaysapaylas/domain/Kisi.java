@@ -8,14 +8,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity  
-//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)  
-//@DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)  
-//@DiscriminatorValue(value="kisi")
-public class Kisi extends BaseEntity {
+@Inheritance(strategy=InheritanceType.JOINED) 
+public class Kisi extends BaseEntityAudit {
 	
 	private Long id;
 	private String ad;
@@ -27,6 +27,7 @@ public class Kisi extends BaseEntity {
 	private Ilce yasadigiIlce;
 	private String Adres;
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	@Column(name="ID")
@@ -36,6 +37,7 @@ public class Kisi extends BaseEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}	
+	
 	@Column(name="AD")
 	public String getAd() {
 		return ad;

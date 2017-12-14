@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Mesaj extends BaseEntity{
+public class Mesaj extends BaseEntityAudit{
 	
 	private Long id;
 	private Kisi gonderen;

@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "Rol", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "ROL_ADI"),
 		@UniqueConstraint(columnNames = "ROL_KODU") })
-public class Rol extends BaseEntity {
+public class Rol extends BaseEntityAudit {
 	
 	private Long id;
 	private String rolAdi;
@@ -66,6 +66,13 @@ public class Rol extends BaseEntity {
 	public void setYetkiler(Set<Yetki> yetkiler) {
 		this.yetkiler = yetkiler;
 	}
+	
+	
+	
+	
+	public Rol() {
+	}
+
 	public Rol(String rolAdi, String rolKodu) {
 		super();
 		this.rolAdi = rolAdi;

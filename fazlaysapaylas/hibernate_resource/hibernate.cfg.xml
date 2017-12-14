@@ -23,7 +23,7 @@
 			true
 		</property>
 		<property name="hbm2ddl.auto">
-			create
+			validate
 		</property>
 		
 		<mapping class="com.fazlaysapaylas.domain.Il" />
@@ -38,6 +38,7 @@
 		<mapping class="com.fazlaysapaylas.domain.Rol" />	
 		<mapping class="com.fazlaysapaylas.domain.Mesaj" />
 		<mapping class="com.fazlaysapaylas.domain.IslemLog" />
+	
 	
 		
 	</session-factory>

@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Il extends BaseEntity {
+public class Il extends BaseEntityAudit{
 	
 	private Long id;
 	private String ilKodu;
@@ -22,7 +22,9 @@ public class Il extends BaseEntity {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}	
+	
+	
 	@Column(name="IL_KODU")
 	public String getIlKodu() {
 		return ilKodu;

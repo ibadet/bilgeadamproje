@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import com.fazlaysapaylas.enums.UrunDurumu;
 
 @Entity
-public class Urun extends BaseEntity {
+public class Urun extends BaseEntityAudit {
 	
 	private Long id;
 	private String tanim;

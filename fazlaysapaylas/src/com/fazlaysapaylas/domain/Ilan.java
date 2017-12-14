@@ -20,7 +20,7 @@ import com.fazlaysapaylas.enums.IlanOnayDurumu;
 import com.fazlaysapaylas.enums.YayinDurumu;
 
 @Entity
-public class Ilan extends BaseEntity {
+public class Ilan extends BaseEntityAudit {
 	
 	private Long id;
 	private Long ilanNo;

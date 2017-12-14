@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Marka extends BaseEntity{
+public class Marka extends BaseEntityAudit{
 	
 	private Long id;
 	private String markaAdi;

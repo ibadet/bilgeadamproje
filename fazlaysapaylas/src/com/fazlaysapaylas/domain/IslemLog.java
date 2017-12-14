@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import com.fazlaysapaylas.enums.IslemYeri;
 
 @Entity
-public class IslemLog extends BaseEntity {
+public class IslemLog extends BaseEntityAudit {
 	
 	private Long id;
 	private Date islemTarihi;

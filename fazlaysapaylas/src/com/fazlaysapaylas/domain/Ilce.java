@@ -10,11 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Ilce extends BaseEntity {
+public class Ilce extends BaseEntityAudit {
 	
 	private Long id;
 	private Il il;
 	private String ilceAdi;
+	
 	
 	
 	@Id

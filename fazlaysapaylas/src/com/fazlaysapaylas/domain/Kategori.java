@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Kategori extends BaseEntity {
+public class Kategori extends BaseEntityAudit {
 	
 	private Long id;
 	private String kategoriAdi;

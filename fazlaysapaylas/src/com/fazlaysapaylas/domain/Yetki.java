@@ -17,7 +17,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "Yetki", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "YETKI_ADI"),
 		@UniqueConstraint(columnNames = "YETKI_KODU") })
-public class Yetki extends BaseEntity {
+public class Yetki extends BaseEntityAudit {
 	
 	private Long id;
 	private String yetkiAdi;
