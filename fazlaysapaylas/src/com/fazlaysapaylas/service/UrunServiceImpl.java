@@ -2,10 +2,10 @@ package com.fazlaysapaylas.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fazlaysapaylas.dao.UrunDao;
-import com.fazlaysapaylas.dao.UrunDaoImpl;
 import com.fazlaysapaylas.domain.Kategori;
 import com.fazlaysapaylas.domain.Marka;
 import com.fazlaysapaylas.domain.Urun;
@@ -14,8 +14,8 @@ import com.fazlaysapaylas.enums.UrunDurumu;
 @Service
 public class UrunServiceImpl implements UrunService {
 	
-	//@Autowired
-	private UrunDao urunDao=new UrunDaoImpl();
+	@Autowired
+	private UrunDao urunDao;
 
 	@Override
 	public List<Urun> kategoriyeGoreUrunGetir(Kategori kategori) {

@@ -15,5 +15,6 @@ public interface KategoriService {
 	public boolean kategoriSil(Kategori kategori);
 	
 	public Kategori kategoriGetir(Long kategoriId);
-
+	
+	public List<Kategori> tumKategorileriGetir();
 }

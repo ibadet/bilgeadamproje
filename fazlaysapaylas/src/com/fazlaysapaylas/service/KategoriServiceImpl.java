@@ -2,18 +2,18 @@ package com.fazlaysapaylas.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fazlaysapaylas.dao.KategoriDao;
-import com.fazlaysapaylas.dao.KategoriDaoImpl;
 import com.fazlaysapaylas.domain.Kategori;
 
 @Service
 public class KategoriServiceImpl implements KategoriService {
 
-	//@Autowired
-	private KategoriDao kategoriDao=new KategoriDaoImpl();
-	
+	@Autowired
+	private KategoriDao kategoriDao;	
+			
 	@Override
 	public List<Kategori> altKategorileriGetir(Kategori ustKategori) {
 		return kategoriDao.altKategorileriGetir(ustKategori);
@@ -39,4 +39,10 @@ public class KategoriServiceImpl implements KategoriService {
 		return kategoriDao.kategoriGetir(kategoriId);
 	}
 
+	@Override
+	public List<Kategori> tumKategorileriGetir() {
+		return kategoriDao.tumKategorileriGetir();
+	}
+
 }
+

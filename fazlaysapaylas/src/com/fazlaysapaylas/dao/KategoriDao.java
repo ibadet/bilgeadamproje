@@ -15,4 +15,6 @@ public interface KategoriDao {
 	public boolean kategoriEkle(Kategori kategori);
 	
 	public boolean kategoriSil(Kategori kategori);
+	
+	public List<Kategori> tumKategorileriGetir();
 }

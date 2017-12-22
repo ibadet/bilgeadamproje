@@ -9,10 +9,12 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.fazlaysapaylas.domain.Kategori;
 import com.fazlaysapaylas.utils.HibernateUtil;
 
+@Repository
 public class KategoriDaoImpl implements KategoriDao {
 
 	private Session session;
@@ -85,6 +87,24 @@ public class KategoriDaoImpl implements KategoriDao {
 		session.close();
 		
 		return kategori;
+	}
+
+	@Override
+	public List<Kategori> tumKategorileriGetir() {
+		List<Kategori> tumKategoriler=new ArrayList<Kategori>();
+		session=HibernateUtil.getSession();
+		session.beginTransaction();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<Kategori> selectQuery = builder.createQuery(Kategori.class);
+		Root<Kategori> root = selectQuery.from(Kategori.class);
+		selectQuery.select(root);
+		Query<Kategori> query=session.createQuery(selectQuery);	
+		tumKategoriler= query.getResultList();
+		session.getTransaction().commit();
+		session.close();
+		
+		return tumKategoriler;
+	
 	}
 
 }

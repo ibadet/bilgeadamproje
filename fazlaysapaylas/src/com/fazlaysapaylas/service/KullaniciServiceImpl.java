@@ -1,17 +1,17 @@
 package com.fazlaysapaylas.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fazlaysapaylas.dao.KullaniciDao;
-import com.fazlaysapaylas.dao.KullaniciDaoImpl;
 import com.fazlaysapaylas.domain.Kullanici;
 import com.fazlaysapaylas.domain.Rol;
 
 @Service
 public class KullaniciServiceImpl implements KullaniciService {
 	
-	//@Autowired
-	private KullaniciDao kullaniciDao=new KullaniciDaoImpl();
+	@Autowired
+	private KullaniciDao kullaniciDao; 
 
 	@Override
 	public Kullanici kullaniciAdinaGoreGetir(String kullaniciAdi) {
