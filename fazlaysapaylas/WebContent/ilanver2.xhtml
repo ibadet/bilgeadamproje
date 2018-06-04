@@ -18,6 +18,7 @@
 
 	<h2>This is ilanver content</h2>
 	<h:form enctype="multipart/form-data" style="width:500px">
+	    <p:growl id="msgs" showDetail="true" />
 		<div id="fotoYukleme">
 			<p:fileUpload fileUploadListener="#{dosyaYukleBean.handleFileUpload}"
 				invalidSizeMessage="#{messages['uyari.dosyaboyutu']}"
@@ -25,21 +26,42 @@
 				fileLimitMessage="#{messages['uyari.dosyasayisi']}" mode="advanced"
 				dragDropSupport="false" multiple="true" update="messages"
 				sizeLimit="3000000" fileLimit="5"
-				allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+				allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+				label="Resim Seçiniz" 
+				uploadLabel="Yükle"
+				cancelLabel="İptal"/>
 			<p:growl id="messages" showDetail="true" />
 		</div>
 
-		<div id="kategori">
+	<div id="kategori">
 			<h2>Kategori Seçiniz</h2>
 			<p:dataList value="#{kategoriBean.tumKategoriler}"
 				var="kategori" type="ordered">
-				<f:facet name="header">
-            kategoriler
-        </f:facet>
-#{kategori.kategoriAdi}
-    </p:dataList>
+				<f:facet name="header">    kategoriler 	</f:facet>
+					#{kategori.kategoriAdi}
+ 			   </p:dataList>
+   </div>  
+   
+  
 
-		</div>  
+    		     <h:outputText value="Kategori Seçiniz: " />  
+                 <p:selectOneMenu value="#{kategoriBean.kategoriId}" id="kat">  
+                     <p:ajax listener="#{kategoriBean.kategoriDegisinceCalis}" update="altKat" />
+                     <f:selectItem itemLabel="Kategori Seçin" itemValue="" />
+                     <f:selectItems value="#{kategoriBean.tumKategoriler}" var="item" itemValue="#{item.id}" itemLabel="#{item.kategoriAdi}" />
+                   <!--   <p:ajax update="altKat" event="change" />     valueChangeListener="#{kategoriBean.kategoriDegisinceCalis}"-->
+                 </p:selectOneMenu>
+                 
+                 <br></br>
+                 
+                 <h:outputText value="Altkategori Seçiniz: " />  
+                 <p:selectOneMenu value="#{kategoriBean.altKategoriId}" id="altKat"> 
+                     <f:selectItem itemLabel="AltKategori seçin" itemValue="" />
+                     <f:selectItems value="#{kategoriBean.altKategoriler}" var="item" itemValue="#{item.id}" itemLabel="#{item.kategoriAdi}" />              
+                 </p:selectOneMenu>
+    
+    
+		
 	</h:form>
 
 

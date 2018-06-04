@@ -107,4 +107,39 @@ public class KategoriDaoImpl implements KategoriDao {
 	
 	}
 
+	@Override
+	public List<Kategori> altKategorileriGetir(Long ustKategoriId) {
+		List<Kategori> altKategoriler=new ArrayList<Kategori>();
+		session=HibernateUtil.getSession();
+		session.beginTransaction();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<Kategori> selectQuery = builder.createQuery(Kategori.class);	
+		Root<Kategori> root=selectQuery.from(Kategori.class);	
+		selectQuery.select(root).where(builder.equal(root.get("ustKategori").get("id"),ustKategoriId));	
+		Query<Kategori> query=session.createQuery(selectQuery);	
+		altKategoriler= query.getResultList();
+		session.getTransaction().commit();
+		session.close();
+		
+		return altKategoriler;
+	}
+
+	@Override
+	public List<Kategori> tumUstKategorileriGetir() {
+		List<Kategori> tumUstKategoriler=new ArrayList<Kategori>();
+		session=HibernateUtil.getSession();
+		session.beginTransaction();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<Kategori> selectQuery = builder.createQuery(Kategori.class);
+		Root<Kategori> root = selectQuery.from(Kategori.class);
+		//selectQuery.select(root).where(builder.equal(root.get("ustKategori"),null));
+		selectQuery.select(root).where(builder.isNull(root.get("ustKategori")));
+		Query<Kategori> query=session.createQuery(selectQuery);	
+		tumUstKategoriler= query.getResultList();
+		session.getTransaction().commit();
+		session.close();
+		
+		return tumUstKategoriler;
+	}
+
 }

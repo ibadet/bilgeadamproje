@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 
+import com.fazlaysapaylas.domain.Il;
+import com.fazlaysapaylas.domain.Ilce;
 import com.fazlaysapaylas.domain.Kategori;
 import com.fazlaysapaylas.domain.Kullanici;
 import com.fazlaysapaylas.domain.Marka;
@@ -20,6 +22,37 @@ public class VeriOlustur {
 	Session session = null;
 	private List<Marka> markaListesi;
 	private List<Kategori> kategoriListesi;
+	//private List<Il> ilListesi;
+	private List<Ilce> ilceListesi;
+	
+	/*
+	private void ilListesiOlustur(){
+		//TODO:Tüm illerin yüklenmesi gerekiyor.
+		
+		ilListesi=new ArrayList<Il>();
+		ilListesi.add(new Il("01", "Adana"));
+		ilListesi.add(new Il("06", "Ankara"));
+		ilListesi.add(new Il("34", "İstanbul"));
+		ilListesi.add(new Il("35", "İzmir"));
+	}*/
+	
+	private void ilceListesiOlustur(){
+		//TODO:Tüm ilçelerin yüklenmesi gerekiyor.
+		ilceListesi=new ArrayList<Ilce>();
+		Il ilAdana=new Il("01","Adana");
+		ilceListesi.add(new Ilce(ilAdana,"Ceyhan"));
+		
+		Il ilAnkara=new Il("06","Ankara");
+		ilceListesi.add(new Ilce(ilAnkara,"Çankaya"));
+		
+		Il ilIstanbul=new Il("34","İstanbul");
+		ilceListesi.add(new Ilce(ilIstanbul,"Beşiktaş"));
+		
+		Il ilIzmir=new Il("35","İzmir");
+		ilceListesi.add(new Ilce(ilIzmir,"Aliağa"));
+		ilceListesi.add(new Ilce(ilIzmir,"Bergama"));
+		
+	}
 
 
 	private void markaListesiOlustur() {
@@ -27,16 +60,16 @@ public class VeriOlustur {
 		markaListesi.add(new Marka("Fisher Price"));
 		markaListesi.add(new Marka("Chicco"));
 		markaListesi.add(new Marka("Pilsan"));
-		markaListesi.add(new Marka("Arma�an"));
+		markaListesi.add(new Marka("ArmağanOyuncak"));
 	}
 
 	private void kategoriListesiOlustur() {
 		kategoriListesi = new ArrayList<Kategori>();
 		Kategori ustKategori1 = new Kategori("Oyuncak", "OYUNCAK", null);
 		kategoriListesi.add(ustKategori1);
-		kategoriListesi.add(new Kategori("E�itici Oyuncak", "EGITICIOYUNCAK",
+		kategoriListesi.add(new Kategori("Eğitici Oyuncak", "EGITICIOYUNCAK",
 				ustKategori1));
-		kategoriListesi.add(new Kategori("Pelu� Oyuncak", "PELUSOYUNCAK",
+		kategoriListesi.add(new Kategori("Peluş Oyuncak", "PELUSOYUNCAK",
 				ustKategori1));
 		kategoriListesi.add(new Kategori("Puzzle", "PUZZLE", ustKategori1));
 
@@ -44,18 +77,18 @@ public class VeriOlustur {
 		kategoriListesi.add(ustKategori2);
 		kategoriListesi.add(new Kategori("Etek-Elbise", "ETEKELBISE",
 				ustKategori2));
-		kategoriListesi.add(new Kategori("Mont-Ya�murluk-Ceket", "MONTCEKET",
+		kategoriListesi.add(new Kategori("Mont-Yağmurluk-Ceket", "MONTCEKET",
 				ustKategori2));
-		kategoriListesi.add(new Kategori("Pantolon-�ort", "PANTOLON",
+		kategoriListesi.add(new Kategori("Kostüm", "KOSTUM",
 				ustKategori2));
 
 		Kategori ustKategori3 = new Kategori("Kitap", "KITAP", null);
 		kategoriListesi.add(ustKategori3);
-		kategoriListesi.add(new Kategori("E�itici Kitap", "EGITICI",
+		kategoriListesi.add(new Kategori("Eğitici Kitap", "EGITICI",
 				ustKategori3));
-		kategoriListesi.add(new Kategori("Ebeveynler i�in Kitap", "EBEVEYN",
+		kategoriListesi.add(new Kategori("Ebeveynler için Kitap", "EBEVEYN",
 				ustKategori3));
-		kategoriListesi.add(new Kategori("Hikaye-Masal Kitab�", "HIKAYE",
+		kategoriListesi.add(new Kategori("Hikaye-Masal Kitabı", "HIKAYE",
 				ustKategori3));
 	}
 
@@ -72,6 +105,11 @@ public class VeriOlustur {
 	public void tablolariOlustur() {
 		Date dogumTarihi = null;
 		sessionBaslangic();
+		
+		ilceListesiOlustur();
+		for (Ilce ilce : ilceListesi) {
+			session.save(ilce);
+		}
 
 		markaListesiOlustur();
 		for (Marka marka : markaListesi) {
@@ -86,8 +124,8 @@ public class VeriOlustur {
 		Rol adminRol = new Rol("ADMIN", "ADMIN");
 		Rol kullaniciRol = new Rol("KULLANICI", "KULLANICI");
 
-		Yetki eklemeYetkisi = new Yetki("Yeni Kay�t Ekleme", "EKLE");
-		Yetki duzenlemeYetkisi = new Yetki("D�zenleme", "DUZENLE");
+		Yetki eklemeYetkisi = new Yetki("Yeni Kayıt Ekleme", "EKLE");
+		Yetki duzenlemeYetkisi = new Yetki("Düzenleme", "DUZENLE");
 		Yetki silmeYetkisi = new Yetki("Silme", "SIL");
 
 		adminRol.yetkiEkle(eklemeYetkisi);
@@ -110,7 +148,7 @@ public class VeriOlustur {
 		
 		Kullanici kullanici = new Kullanici("ibad", "123", adminRol);
 		kullanici.setAd("ibadet");
-		kullanici.setSoyad("�zdemir");
+		kullanici.setSoyad("özdemir");
 		kullanici.setCepTelefonu("05050786214");
 		kullanici.setEpostaAdresi("iozdemir81@gmail.com");
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");		

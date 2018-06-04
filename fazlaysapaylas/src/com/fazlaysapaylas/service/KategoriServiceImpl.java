@@ -1,4 +1,4 @@
-package com.fazlaysapaylas.service;
+ package com.fazlaysapaylas.service;
 
 import java.util.List;
 
@@ -42,6 +42,16 @@ public class KategoriServiceImpl implements KategoriService {
 	@Override
 	public List<Kategori> tumKategorileriGetir() {
 		return kategoriDao.tumKategorileriGetir();
+	}
+
+	@Override
+	public List<Kategori> altKategorileriGetir(Long ustKategoriId) {
+		return kategoriDao.altKategorileriGetir(ustKategoriId);
+	}
+
+	@Override
+	public List<Kategori> tumUstKategorileriGetir() {
+		return kategoriDao.tumUstKategorileriGetir();
 	}
 
 }

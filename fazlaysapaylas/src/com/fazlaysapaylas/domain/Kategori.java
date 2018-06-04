@@ -42,7 +42,7 @@ public class Kategori extends BaseEntityAudit {
 		this.kategoriKodu = kategoriKodu;
 	}	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="USTKATEGORI_ID")
 	public Kategori getUstKategori() {
 		return ustKategori;

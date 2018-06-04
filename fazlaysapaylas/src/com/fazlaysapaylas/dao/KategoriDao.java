@@ -8,6 +8,8 @@ public interface KategoriDao {
 	
 	public List<Kategori> altKategorileriGetir(Kategori ustKategori);
 	
+	public List<Kategori> altKategorileriGetir(Long ustKategoriId);
+	
 	public Kategori ustKategoriGetir(Long kategoriId);
 
 	public Kategori kategoriGetir(Long kategoriId);
@@ -17,4 +19,6 @@ public interface KategoriDao {
 	public boolean kategoriSil(Kategori kategori);
 	
 	public List<Kategori> tumKategorileriGetir();
+	
+	public List<Kategori> tumUstKategorileriGetir();
 }

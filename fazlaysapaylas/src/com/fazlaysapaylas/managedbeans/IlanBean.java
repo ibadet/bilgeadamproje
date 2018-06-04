@@ -31,4 +31,10 @@ public class IlanBean {
 	public IlanBean(){
 		
 	}
+	
+	public String  ilanSayfasinaGit(){
+	
+		return "/login";
+		
+	}
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Paylaşmak İyi Hissettirir</title>
+
+	<style>
+.menubar {
+	background-color: lightblue;
+	margin-top: 20px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+	   		        
+      
+		<p:layout style="min-height:700px;">
+		<!-- 	
+			<p:layoutUnit position="top">
+			      
+			</p:layoutUnit> -->
+
+	  		<p:layoutUnit position="center"> 
+			    <p:link outcome="ilanver2" value="Hemen Paylaş">   </p:link>
+			    
+					 				
+				<p:menubar styleClass="menubar" orientation="horizontal">
+					<p:submenu label="Oyuncak" icon="ui-icon-star">
+						<p:menuitem value="Eğitici Oyuncak" url="#" />
+						<p:menuitem value="Peluş Ouncak" url="#" />
+						<p:menuitem value="Puzzle" url="#" />
+					</p:submenu>
+
+					<p:submenu label="Kitap" icon="ui-icon-heart">
+						<p:menuitem value="Eğitici Kitap" url="#" />
+						<p:menuitem value="Ebeveynler için Kitap" url="#" />
+						<p:menuitem value="Hikaye-Masal Kitabı" url="#" />
+					</p:submenu>
+
+					<p:submenu label="Kırtasiye" icon="ui-icon-pencil">
+						<p:menuitem value="Ders Kitapları" url="#" />
+						<p:menuitem value="Okul Çantası" url="#" />
+						<p:menuitem value="Diğer Malzemeler" url="#" />
+					</p:submenu>
+
+					<p:submenu label="Giyim" icon="ui-icon-scissors">
+						<p:menuitem value="Okul Kıyafetleri" url="#" />
+						<p:menuitem value="Mont-Yağmurluk-Ceket" url="#" />
+						<p:menuitem value="Kostüm" url="#" />
+					</p:submenu>
+				</p:menubar>
+		 	</p:layoutUnit> 
+		
+
+		<!-- 	<p:layoutUnit position="bottom">
+				<p>iletişim ve Sosyal medya kısmı</p>
+			</p:layoutUnit> -->
+		</p:layout>
+
+	<!--ÇALIŞMADI!!-->
+			<p:graphicImage name="/resources/images/paylasmak.jpg"
+				title="Paylaşmak İyi Hissettirir..." />
+
+
+	</h:form>
+</h:body>
+</html>
