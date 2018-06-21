@@ -15,7 +15,7 @@ public class KategoriServiceImpl implements KategoriService {
 	private KategoriDao kategoriDao;	
 			
 	@Override
-	public List<Kategori> altKategorileriGetir(Kategori ustKategori) {
+	public List<Kategori> altKategorileriGetir(Kategori ustKategori) {		
 		return kategoriDao.altKategorileriGetir(ustKategori);
 	}
 

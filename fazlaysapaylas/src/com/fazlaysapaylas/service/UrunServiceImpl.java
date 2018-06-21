@@ -36,8 +36,7 @@ public class UrunServiceImpl implements UrunService {
 
 	@Override
 	public boolean urunEkle(Urun urun) {
-		// TODO Auto-generated method stub
-		return false;
+		return urunDao.urunEkle(urun);
 	}
 
 	@Override

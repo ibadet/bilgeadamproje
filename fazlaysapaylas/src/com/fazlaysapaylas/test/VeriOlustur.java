@@ -22,19 +22,8 @@ public class VeriOlustur {
 	Session session = null;
 	private List<Marka> markaListesi;
 	private List<Kategori> kategoriListesi;
-	//private List<Il> ilListesi;
 	private List<Ilce> ilceListesi;
 	
-	/*
-	private void ilListesiOlustur(){
-		//TODO:Tüm illerin yüklenmesi gerekiyor.
-		
-		ilListesi=new ArrayList<Il>();
-		ilListesi.add(new Il("01", "Adana"));
-		ilListesi.add(new Il("06", "Ankara"));
-		ilListesi.add(new Il("34", "İstanbul"));
-		ilListesi.add(new Il("35", "İzmir"));
-	}*/
 	
 	private void ilceListesiOlustur(){
 		//TODO:Tüm ilçelerin yüklenmesi gerekiyor.
@@ -61,6 +50,7 @@ public class VeriOlustur {
 		markaListesi.add(new Marka("Chicco"));
 		markaListesi.add(new Marka("Pilsan"));
 		markaListesi.add(new Marka("ArmağanOyuncak"));
+		markaListesi.add(new Marka("Diğer"));
 	}
 
 	private void kategoriListesiOlustur() {
@@ -72,6 +62,7 @@ public class VeriOlustur {
 		kategoriListesi.add(new Kategori("Peluş Oyuncak", "PELUSOYUNCAK",
 				ustKategori1));
 		kategoriListesi.add(new Kategori("Puzzle", "PUZZLE", ustKategori1));
+		kategoriListesi.add(new Kategori("Diğer", "DİGER", ustKategori1));
 
 		Kategori ustKategori2 = new Kategori("Giyim", "GIYIM", null);
 		kategoriListesi.add(ustKategori2);
@@ -81,6 +72,8 @@ public class VeriOlustur {
 				ustKategori2));
 		kategoriListesi.add(new Kategori("Kostüm", "KOSTUM",
 				ustKategori2));
+		kategoriListesi.add(new Kategori("Diğer", "DIGER",
+				ustKategori2));
 
 		Kategori ustKategori3 = new Kategori("Kitap", "KITAP", null);
 		kategoriListesi.add(ustKategori3);
@@ -89,6 +82,8 @@ public class VeriOlustur {
 		kategoriListesi.add(new Kategori("Ebeveynler için Kitap", "EBEVEYN",
 				ustKategori3));
 		kategoriListesi.add(new Kategori("Hikaye-Masal Kitabı", "HIKAYE",
+				ustKategori3));
+		kategoriListesi.add(new Kategori("Diğer", "DIGER",
 				ustKategori3));
 	}
 
@@ -146,14 +141,14 @@ public class VeriOlustur {
 
 		//Kullanici ekle.
 		
-		Kullanici kullanici = new Kullanici("ibad", "123", adminRol);
-		kullanici.setAd("ibadet");
-		kullanici.setSoyad("özdemir");
-		kullanici.setCepTelefonu("05050786214");
-		kullanici.setEpostaAdresi("iozdemir81@gmail.com");
+		Kullanici kullanici = new Kullanici("admin", "admin123", adminRol);
+		kullanici.setAd("fazla");
+		kullanici.setSoyad("paylas");
+		kullanici.setCepTelefonu("05051112233");
+		kullanici.setEpostaAdresi("fazlasinipaylas@gmail.com");
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");		
 		try {
-			dogumTarihi = formatter.parse("24.08.1981");
+			dogumTarihi = formatter.parse("01.01.1979");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

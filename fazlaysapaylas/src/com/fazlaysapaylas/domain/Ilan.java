@@ -80,7 +80,7 @@ public class Ilan extends BaseEntityAudit {
 	public void setOnayDurumu(IlanOnayDurumu onayDurumu) {
 		this.onayDurumu = onayDurumu;
 	}
-	@Column(name="KALDIRILMA_NEDENÝ")
+	@Column(name="KALDIRILMA_NEDENI")
 	@Enumerated(EnumType.STRING)
 	public IlanKaldirmaNedeni getKaldirilmaNedeni() {
 		return kaldirilmaNedeni;

@@ -53,8 +53,13 @@ public class UrunDaoImpl implements UrunDao {
 
 	@Override
 	public boolean urunEkle(Urun urun) {
-		// TODO Auto-generated method stub
-		return false;
+		session=HibernateUtil.getSession();
+		session.beginTransaction();
+		session.save(urun.getIlan());
+		session.save(urun);
+		session.getTransaction().commit();
+		session.close();
+		return true;
 	}
 
 	@Override

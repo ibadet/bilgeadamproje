@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,63 +11,71 @@
 </h:head>
 
 <f:metadata>
- 	<f:viewAction action="#{kategoriBean.onload}" />
+	<f:viewAction action="#{kategoriBean.onload}" />
 </f:metadata>
-
 <h:body>
 
-	<ui:composition template="/templates/common/commonLayout.xhtml">
+	<h2>Hoşgeldiniz</h2>
+	
+	<h:form enctype="multipart/form-data" style="width:500px">
+		<p:growl id="msgs" showDetail="true" />
+		<p:outputLabel for="foto" value="Ürünün güzel bir fotoğrafını yükleyin" />	
+		<div id="fotoYukleme">
+		<p:fileUpload id="foto" value="#{urunBean.yuklenenDosya}" mode="simple"/>
+    	 <p:commandButton value="Yükle" ajax="false" actionListener="#{urunBean.dosyayiYukle}" />
+		</div>
 
-		<ui:define name="content">
-			<h2>This is ilanver content</h2>
-			<h:form enctype="multipart/form-data" style="width:500px">
-				<div id="fotoYukleme">
-					<p:fileUpload
-						fileUploadListener="#{dosyaYukleBean.handleFileUpload}"
-						invalidSizeMessage="#{messages['uyari.dosyaboyutu']}"
-						invalidFileMessage="#{messages['uyari.dosyaturu']}"
-						fileLimitMessage="#{messages['uyari.dosyasayisi']}"
-						mode="advanced" dragDropSupport="false" multiple="true"
-						update="messages" sizeLimit="3000000" fileLimit="5"
-						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-					<p:growl id="messages" showDetail="true" />
-				</div>
+		<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+		
+			<p:outputLabel value="Kısa Tanım:" />
+			<p:inputTextarea id="kisaTanim"	value="#{urunBean.tanim}" title="Ürünü diğerlerinden ayıran anahtar kelimeleri kullanabilirsiniz"  rows="2" cols="40"/>
+		    <p:tooltip id="toolTipFocus" for="kisaTanim" showEvent="focus" hideEvent="blur" />
+		
+			<p:outputLabel value="Kategori:" />
+			<p:selectOneMenu value="#{kategoriBean.kategoriId}" id="kat">
+				<p:ajax listener="#{kategoriBean.kategoriDegisinceCalis}"
+					update="altKat" />
+				<f:selectItem itemLabel="Kategori Seçin" itemValue="#{null}" />
+				<f:selectItems value="#{kategoriBean.tumKategoriler}" var="item"
+					itemValue="#{item.id}" itemLabel="#{item.kategoriAdi}" />
+			</p:selectOneMenu>
 
-				<div id="kategori">
-				<p:dataList value="#{kategoriBean.tumKategoriler}" var="kategori"
-						type="ordered">
-						<f:facet name="header">
-          					  Kategori Seçiniz
-        				</f:facet>
-						#{kategori.kategoriAdi}
-   				</p:dataList>
-				</div>
-				
-				
-				<div id="kategoriListesi">
-					<h2>Kategori Seçiniz</h2>
-					<ul>
-						<ui:repeat value="#{kategoriBean.tumKategoriler}" var="kategori">
-							<li><h:link value="#{kategori.kategoriAdi}"	outcome="kategori">
-									<f:param name="id" value="#{kategori.id}" />
-								</h:link></li>
-						</ui:repeat>
-					</ul>
-				</div>
-				
-				<p:ring id="custom" value="#{kategoriBean.tumKategoriler}" var="kategori" easing="easeInOutBack">
-      			  <p:graphicImage id="img" name="images/OYUNCAK.jpg"/>
-   				 </p:ring>
- 	
-				
-		</h:form>
-		</ui:define>
+			<p:outputLabel value="Altkategori:" />
+			<p:selectOneMenu value="#{urunBean.secilenAltKategoriId}" id="altKat">
+				<f:selectItem itemLabel="AltKategori seçin" itemValue="#{null}" />
+				<f:selectItems value="#{kategoriBean.altKategoriler}" var="item"
+					itemValue="#{item.id}" itemLabel="#{item.kategoriAdi}" />
+			</p:selectOneMenu>
 
-		<ui:define name="footer">
-			<h2>This is ilanver Footer</h2>
-		</ui:define>
+	
+			<p:outputLabel for="marka" value="Marka:" />
+			<p:selectOneMenu value="#{urunBean.secilenMarkaId}" id="marka">
+				<f:selectItem itemLabel="Marka seçin" itemValue="#{null}" />
+				<f:selectItems value="#{markaBean.markalar}" var="item"
+					itemValue="#{item.id}" itemLabel="#{item.markaAdi}" />
+			</p:selectOneMenu>
 
-	</ui:composition>
+
+			<p:outputLabel for="kullanimDurumu" value="Kullanım Durumu:" />
+			<p:selectOneRadio id="kullanimDurumu"
+				value="#{urunBean.kullanimDurumu}">
+				<f:selectItem itemLabel="Az Kullanılmış" itemValue="AZKULLANILMIS" />
+				<f:selectItem itemLabel="Kullanılmamış" itemValue="KULLANILMAMIS" />
+				<f:selectItem itemLabel="Etiketli" itemValue="ETIKETLI" />
+			</p:selectOneRadio>
+
+			
+			<p:outputLabel value="Detaylı Açıklama:" />
+			<p:inputTextarea rows="3" cols="30"
+				value="#{urunBean.girilenAciklama}" />
+
+
+			<h:commandButton value="Kaydet" id="urunKaydet"
+				action="#{urunBean.urunKaydet}" />
+
+		</h:panelGrid>
+	</h:form>
+
 
 </h:body>
 </html>

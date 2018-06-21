@@ -17,6 +17,7 @@ public class KategoriBean {
 	private Kategori kategori=new Kategori();
 	private List<Kategori> tumKategoriler;
 	private List<Kategori> altKategoriler;
+	//private Map<String,Kategori> altKategoriler=new HashMap<String, Kategori>();
 	//private String secilenKategori;
 	//private String secilenAltKategori;
 	
@@ -25,19 +26,13 @@ public class KategoriBean {
 	//private String kategoriAdi;
 	
 	
-	
-	
-	
 	public Long getAltKategoriId() {
 		return altKategoriId;
 	}
 
 	public void setAltKategoriId(Long altKategoriId) {
 		this.altKategoriId = altKategoriId;
-	}
-
-	
-	
+	}	
 	
 	public Long getKategoriId() {
 		return kategoriId;
@@ -46,8 +41,6 @@ public class KategoriBean {
 	public void setKategoriId(Long kategoriId) {
 		this.kategoriId = kategoriId;
 	}
-
-
 
 
 	@ManagedProperty(value="#{kategoriServiceImpl}")

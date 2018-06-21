@@ -50,10 +50,10 @@ public class KullaniciBean {
 		kullanici=kullaniciService.kullaniciGetir(kullanici.getKullaniciAdi(), kullanici.getSifre());
 		if(kullanici==null){
 			kullanici=new Kullanici();
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Kullanýcý adý ve/veya þifre hatalý!","Giriþ Hatasý!"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"KullanÄ±cÄ± adÄ± ve/veya ÅŸifre hatalÄ±!","GiriÅŸ HatasÄ±!"));
 			return null;
 		}else{
-			return "/main";
+			return "ilanver?faces-redirect=true";
 		}
 	}
 }

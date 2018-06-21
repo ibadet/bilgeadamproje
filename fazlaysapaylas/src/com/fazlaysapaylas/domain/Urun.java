@@ -18,9 +18,9 @@ public class Urun extends BaseEntityAudit {
 	private String tanim;
 	private Kategori kategori;
 	private Marka marka;
-	private UrunDurumu kullanýmDurumu;
+	private UrunDurumu kullanimDurumu;
 	private String aciklama;
-	private Integer puan; 
+	private Integer puan; 	
 	private byte[] fotograf;
 	private Ilan ilan;
 	
@@ -60,10 +60,10 @@ public class Urun extends BaseEntityAudit {
 	}
 	@Column(name="KULLANIM_DURUMU")
 	public UrunDurumu getKullanýmDurumu() {
-		return kullanýmDurumu;
+		return kullanimDurumu;
 	}
 	public void setKullanýmDurumu(UrunDurumu kullanýmDurumu) {
-		this.kullanýmDurumu = kullanýmDurumu;
+		this.kullanimDurumu = kullanýmDurumu;
 	}
 	
 	@Column(name="ACIKLAMA")
@@ -82,7 +82,7 @@ public class Urun extends BaseEntityAudit {
 		this.puan = puan;
 	}
 	
-	@Column(name="FOTOGRAF")
+	@Column(name="FOTOGRAF",columnDefinition="BLOB")
 	public byte[] getFotograf() {
 		return fotograf;
 	}
@@ -109,12 +109,26 @@ public class Urun extends BaseEntityAudit {
 		this.tanim = tanim;
 		this.kategori = kategori;
 		this.marka = marka;
-		this.kullanýmDurumu = kullanýmDurumu;
+		this.kullanimDurumu = kullanýmDurumu;
 		this.aciklama = aciklama;
 		this.puan = puan;
 		this.fotograf = fotograf;
 		this.ilan = ilan;
 	}
+	
+	public Urun(String tanim, Kategori kategori, Marka marka,
+			UrunDurumu kullanýmDurumu, String aciklama, Integer puan,
+		    Ilan ilan) {
+
+		this.tanim = tanim;
+		this.kategori = kategori;
+		this.marka = marka;
+		this.kullanimDurumu = kullanýmDurumu;
+		this.aciklama = aciklama;
+		this.puan = puan;
+		this.ilan = ilan;
+	}
+
 
 	
 }

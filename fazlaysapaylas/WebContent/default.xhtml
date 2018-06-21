@@ -8,7 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Paylaşmak İyi Hissettirir</title>
 
-	<style>
+<style>
 .menubar {
 	background-color: lightblue;
 	margin-top: 20px;
@@ -17,18 +17,15 @@
 </h:head>
 <h:body>
 	<h:form>
-	   		        
-      
-		<p:layout style="min-height:700px;">
-		<!-- 	
-			<p:layoutUnit position="top">
-			      
-			</p:layoutUnit> -->
 
-	  		<p:layoutUnit position="center"> 
-			    <p:link outcome="ilanver2" value="Hemen Paylaş">   </p:link>
-			    
-					 				
+
+		<p:layout style="min-height:700px;">
+
+			<p:layoutUnit position="center">
+				<p:link outcome="login" value="Hemen Paylaş">
+				</p:link>
+
+
 				<p:menubar styleClass="menubar" orientation="horizontal">
 					<p:submenu label="Oyuncak" icon="ui-icon-star">
 						<p:menuitem value="Eğitici Oyuncak" url="#" />
@@ -54,17 +51,13 @@
 						<p:menuitem value="Kostüm" url="#" />
 					</p:submenu>
 				</p:menubar>
-		 	</p:layoutUnit> 
-		
+			</p:layoutUnit>
 
-		<!-- 	<p:layoutUnit position="bottom">
-				<p>iletişim ve Sosyal medya kısmı</p>
-			</p:layoutUnit> -->
 		</p:layout>
 
-	<!--ÇALIŞMADI!!-->
-			<p:graphicImage name="/resources/images/paylasmak.jpg"
-				title="Paylaşmak İyi Hissettirir..." />
+		<!--ÇALIŞMADI!!-->
+		<p:graphicImage name="/resources/images/paylasmak.jpg"
+			title="Paylaşmak İyi Hissettirir..." />
 
 
 	</h:form>

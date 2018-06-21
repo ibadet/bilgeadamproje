@@ -7,6 +7,9 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @MappedSuperclass
 public class BaseEntityAudit extends BaseEntity {
 
@@ -35,6 +38,7 @@ public class BaseEntityAudit extends BaseEntity {
 	
 	@Temporal(TemporalType.TIMESTAMP)  
 	@Column(name="KAYIT_TARIHI")
+	@CreationTimestamp
 	public Date getKayitTarihi() {
 		return kayitTarihi;
 	}
@@ -45,6 +49,7 @@ public class BaseEntityAudit extends BaseEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)  
 	@Column(name="DEGISIKLIK_TARIHI")
+	@UpdateTimestamp
 	public Date getDegisiklikTarihi() {
 		return degisiklikTarihi;
 	}

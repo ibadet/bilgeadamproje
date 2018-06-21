@@ -22,6 +22,7 @@ public class KategoriDaoImpl implements KategoriDao {
 	@Override
 	public List<Kategori> altKategorileriGetir(Kategori ustKategori) {
 		List<Kategori> altKategoriler=new ArrayList<Kategori>();
+		//Map<String,Kategori> altKategoriler=new HashMap<String, Kategori>();
 		session=HibernateUtil.getSession();
 		session.beginTransaction();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -29,7 +30,7 @@ public class KategoriDaoImpl implements KategoriDao {
 		Root<Kategori> root=selectQuery.from(Kategori.class);	
 		selectQuery.select(root).where(builder.equal(root.get("ustKategori"),ustKategori));	
 		Query<Kategori> query=session.createQuery(selectQuery);	
-		altKategoriler= query.getResultList();
+		altKategoriler=  query.getResultList();
 		session.getTransaction().commit();
 		session.close();
 		
@@ -109,7 +110,8 @@ public class KategoriDaoImpl implements KategoriDao {
 
 	@Override
 	public List<Kategori> altKategorileriGetir(Long ustKategoriId) {
-		List<Kategori> altKategoriler=new ArrayList<Kategori>();
+	   List<Kategori> altKategoriler=new ArrayList<Kategori>();
+		//Map<String,Kategori> altKategoriler=new HashMap<String, Kategori>();
 		session=HibernateUtil.getSession();
 		session.beginTransaction();
 		CriteriaBuilder builder = session.getCriteriaBuilder();

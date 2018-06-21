@@ -11,7 +11,8 @@ import com.fazlaysapaylas.service.IlanService;
 @SessionScoped
 public class IlanBean {
 	
-	private Ilan ilan=new Ilan();	
+	private Ilan ilan=new Ilan();
+	
 	@ManagedProperty(value="#{ilanServiceImpl}")
 	private IlanService ilanService;
 	
@@ -37,4 +38,5 @@ public class IlanBean {
 		return "/login";
 		
 	}
+	
 }
